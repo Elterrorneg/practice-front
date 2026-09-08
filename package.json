@@ -1,0 +1,18 @@
+{
+  "name": "practice-front",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "cucumber-js --require setup/assertions.js --require setup/hooks.js --require stepdefinitions/**/*.js features/**/*.feature",
+    "test:report": "cucumber-js --require setup/assertions.js --require setup/hooks.js --require stepdefinitions/**/*.js --format json:reports/cucumber-report.json features/**/*.feature && node reporter.js",
+    "report": "node reporter.js"
+  },
+  "dependencies": {
+    "@cucumber/cucumber": "^8.1.2",
+    "chai": "^4.3.6",
+    "playwright": "^1.21.1"
+  },
+  "devDependencies": {
+    "cucumber-html-reporter": "^5.5.0"
+  }
+}
