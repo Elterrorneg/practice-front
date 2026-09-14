@@ -1,0 +1,397 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "proceso-de-compra;completar-la-compra-exitosamente",
+        "keyword": "Scenario",
+        "line": 9,
+        "name": "Completar la compra exitosamente",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 296255599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "que el Cliente se encuentra en la página SauceDemo",
+            "match": {
+              "location": "stepdefinitions\\loginStepDefinition.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4291487699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 5,
+            "name": "inicia sesion con las credenciales: \"standard_user\", \"secret_sauce\"",
+            "match": {
+              "location": "stepdefinitions\\loginStepDefinition.js:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 232549399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "agrega el primer producto disponible al carrito",
+            "match": {
+              "location": "stepdefinitions\\inventoyStepDefinition.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 43594399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 10,
+            "name": "que el usuario navega al carrito de compras",
+            "match": {
+              "location": "stepdefinitions\\checkStepDefinition.js:7"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 43347700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 11,
+            "name": "inicia el proceso de checkout",
+            "match": {
+              "location": "stepdefinitions\\checkStepDefinition.js:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 35942500
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 12,
+            "name": "completa la información de envío: \"Juan\", \"Pérez\", \"15001\"",
+            "match": {
+              "location": "stepdefinitions\\checkStepDefinition.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 87928399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "finaliza la compra",
+            "match": {
+              "location": "stepdefinitions\\checkStepDefinition.js:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 33240700
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "se confirma la compra con el mensaje \"Thank you for your order!\"",
+            "match": {
+              "location": "stepdefinitions\\checkStepDefinition.js:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 9256800
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 71992599
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@happyCheckout",
+            "line": 8
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "proceso-de-compra",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Proceso de Compra",
+    "tags": [],
+    "uri": "features\\check.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "gestión-del-carrito-de-compras;agregar-un-producto-al-carrito",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "Agregar un producto al carrito",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 350257900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "que el Cliente se encuentra en la página SauceDemo",
+            "match": {
+              "location": "stepdefinitions\\loginStepDefinition.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2215635299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 5,
+            "name": "inicia sesion con las credenciales: \"standard_user\", \"secret_sauce\"",
+            "match": {
+              "location": "stepdefinitions\\loginStepDefinition.js:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 188014699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "agrega el primer producto disponible al carrito",
+            "match": {
+              "location": "stepdefinitions\\inventoyStepDefinition.js:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 45025400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "el contador del carrito debe mostrar \"1\"",
+            "match": {
+              "location": "stepdefinitions\\inventoyStepDefinition.js:11"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 5300900
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 65656700
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@happyInventory",
+            "line": 7
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "gestión-del-carrito-de-compras",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Gestión del Carrito de Compras",
+    "tags": [],
+    "uri": "features\\inventory.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "login-en-la-página-de-saucedemo;inicio-de-sesión-exitoso---sauce-demo",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Inicio de sesión exitoso - Sauce Demo",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 399848099
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "que el Cliente se encuentra en la página SauceDemo",
+            "match": {
+              "location": "stepdefinitions\\loginStepDefinition.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 484302900
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "inicia sesion con las credenciales: \"standard_user\", \"secret_sauce\"",
+            "match": {
+              "location": "stepdefinitions\\loginStepDefinition.js:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 196592399
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "el login es satisfactorio",
+            "match": {
+              "location": "stepdefinitions\\loginStepDefinition.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10686900
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 69126700
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@happyLogin",
+            "line": 3
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-en-la-página-de-saucedemo;inicio-de-sesión-fallido---sauce-demo",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Inicio de sesión fallido - Sauce Demo",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 305063599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "que el Cliente se encuentra en la página SauceDemo",
+            "match": {
+              "location": "stepdefinitions\\loginStepDefinition.js:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 567795299
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "inicia sesion con las credenciales: \"invalid_user\", \"secret_sauce\"",
+            "match": {
+              "location": "stepdefinitions\\loginStepDefinition.js:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 162030899
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 13,
+            "name": "el login no es satisfactorio",
+            "match": {
+              "location": "stepdefinitions\\loginStepDefinition.js:18"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15537500
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 73103500
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@unhappyLogin",
+            "line": 9
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "login-en-la-página-de-saucedemo",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Login en la página de SauceDemo",
+    "tags": [],
+    "uri": "features\\login.feature"
+  }
+]

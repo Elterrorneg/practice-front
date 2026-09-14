@@ -1,38 +1,32 @@
-class LoginPage {
-  constructor() {
-    this.url = 'https://www.saucedemo.com';
-    this.usernameInput = '#user-name';
-    this.passwordInput = '#password';
-    this.loginButton = '#login-button';
-    this.errorMessage = '[data-test="error"]';
-    this.inventoryList = '.inventory_list';
-  }
-
-  get page() {
-    return global.page;
+class PageLogin {
+  constructor(page) {
+    this.page = page;
+    this.usernameInput = page.getByRole('textbox', { name: 'Username' });
+    this.passwordInput = page.getByRole('textbox', { name: 'Password' });
+    this.loginButton = page.getByRole('button', { name: 'Login' });
+    this.errorMessage = page.locator('[data-test="error"]');
+    this.inventoryList = page.locator('.inventory_list');
   }
 
   async navigateLoginScreen() {
-    await this.page.goto(this.url, { waitUntil: 'domcontentloaded' });
-    await this.page.waitForLoadState('networkidle');
+    await this.page.goto('https://www.saucedemo.com');
   }
 
   async submitLogin(username, password) {
-    await this.page.fill(this.usernameInput, username);
-    await this.page.fill(this.passwordInput, password);
-    await this.page.click(this.loginButton);
+    await this.usernameInput.fill(username);
+    await this.passwordInput.fill(password);
+    await this.loginButton.click();
   }
 
   async verifySuccessfulLogin() {
     await this.page.waitForURL('**/inventory.html');
-    await this.page.waitForSelector(this.inventoryList);
+    await this.inventoryList.waitFor();
   }
 
   async verifyFailedLogin() {
-    await this.page.waitForSelector(this.errorMessage);
-    const text = await this.page.locator(this.errorMessage).innerText();
-    console.log(`Error visible: ${text}`);
+    await this.errorMessage.waitFor();
+    console.log(`Error visible: ${await this.errorMessage.innerText()}`);
   }
 }
 
-module.exports = { LoginPage, PageLogin: LoginPage };
+module.exports = { PageLogin };

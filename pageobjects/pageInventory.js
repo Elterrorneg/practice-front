@@ -1,25 +1,21 @@
 class pageInventory {
-  constructor() {
-    this.inventoryItems = '.inventory_item';
-    this.addToCartButton = '[data-test^="add-to-cart"]';
-    this.shoppingCartBadge = '.shopping_cart_badge';
-    this.shoppingCartLink = '.shopping_cart_link';
+  constructor(page) {
+    this.page = page;
+    this.inventoryItems = page.locator('[data-test="inventory-item"]');    
+    this.addToCartButton = page.getByRole('button', { name: 'Add to cart' });
+    this.shoppingCartBadge = page.locator('[data-test="shopping-cart-badge"]');
+    this.shoppingCartLink = page.locator('[data-test="shopping-cart-link"]');
   }
-
-  get page() {
-    return global.page;
-  }
-
   async addFirstProductToCart() {
-    await this.page.locator(this.addToCartButton).first().click();
+    await this.addToCartButton.first().click();
   }
 
   async getCartBadgeCount() {
-    return await this.page.locator(this.shoppingCartBadge).innerText();
+    return await this.shoppingCartBadge.innerText();
   }
 
   async goToCart() {
-    await this.page.click(this.shoppingCartLink);
+    await this.shoppingCartLink.click();
   }
 }
 

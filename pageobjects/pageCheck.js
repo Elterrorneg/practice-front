@@ -1,36 +1,33 @@
 class pageChek {
-  constructor() {
-    this.checkoutButton = '[data-test="checkout"]';
-    this.firstNameInput = '[data-test="firstName"]';
-    this.lastNameInput = '[data-test="lastName"]';
-    this.postalCodeInput = '[data-test="postalCode"]';
-    this.continueButton = '[data-test="continue"]';
-    this.finishButton = '[data-test="finish"]';
-    this.completeHeader = '.complete-header';
-  }
-
-  get page() {
-    return global.page;
+  constructor(page) {
+    this.page = page;
+    this.checkoutButton = page.getByRole('button', { name: 'Checkout' });
+    this.firstNameInput = page.getByRole('textbox', { name: 'First Name' });
+    this.lastNameInput = page.getByRole('textbox', { name: 'Last Name' });
+    this.postalCodeInput = page.getByRole('textbox', { name: 'Postal Code' });
+    this.continueButton = page.getByRole('button', { name: 'Continue' });
+    this.finishButton = page.getByRole('button', { name: 'Finish' });
+    this.completeHeader = page.locator('[data-test="complete-header"]');
   }
 
   async proceedToCheckout() {
-    await this.page.click(this.checkoutButton);
+    await this.checkoutButton.click();
   }
 
   async fillCheckoutInformation(firstName, lastName, postalCode) {
-    await this.page.fill(this.firstNameInput, firstName);
-    await this.page.fill(this.lastNameInput, lastName);
-    await this.page.fill(this.postalCodeInput, postalCode);
-    await this.page.click(this.continueButton);
+    await this.firstNameInput.fill(firstName);
+    await this.lastNameInput.fill(lastName);
+    await this.postalCodeInput.fill(postalCode);
+    await this.continueButton.click();
   }
 
   async completeOrder() {
-    await this.page.click(this.finishButton);
+    await this.finishButton.click();
   }
 
   async verifyOrderCompletion() {
-    await this.page.waitForSelector(this.completeHeader);
-    const headerText = await this.page.locator(this.completeHeader).innerText();
+    await this.completeHeader.waitFor();
+    const headerText = await this.completeHeader.innerText();
     return headerText;
   }
 }

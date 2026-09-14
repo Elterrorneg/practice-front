@@ -5,6 +5,7 @@ Feature: Proceso de Compra
     And inicia sesion con las credenciales: "standard_user", "secret_sauce"
     And agrega el primer producto disponible al carrito
 
+  @happyCheckout
   Scenario: Completar la compra exitosamente
     Given que el usuario navega al carrito de compras
     When inicia el proceso de checkout
